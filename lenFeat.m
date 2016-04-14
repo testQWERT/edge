@@ -9,8 +9,8 @@ for i=1:img.person.num
 end
 tmp=tmp/img.person.num/1.7;  %姑且认为人的平均身高为1.7米，利用这一点来计算每米包含多少个像素。
 lt=sqrt((c1(1)-c2(1))^2+(c1(2)-c2(2))^2);
-b=log10(tmp*8);
-a=log10(tmp*0.3);% 从0.3到8米之间按照对数分布化成10等分
+b=log10(tmp*3);
+a=log10(tmp*0.6);% 从0.6到3米之间按照对数分布化成10等分
 %a=0;
 x=logspace(a,b,10);
 result=zeros(10,1);
