@@ -3,7 +3,8 @@ function [ result ] = edgefeature( img )
 %   Detailed explanation goes here
 % imA°üÀ¨pic,no,person,feature,edgefeat¡£person°üÀ¨patchNum,data{n,2}£¬num£¬patch{n,pN,2},patchfeature{n,pN},feature{n}
 %
-result=zeros(21,nchoosek(img.person.num,2)*img.person.patchNum^2);
+%result=zeros(21,nchoosek(img.person.num,2)*img.person.patchNum^2);
+result=[];%这个地方改了之后会避免不必要的bug
 counter=1;
 pN=img.person.patchNum;
 for i=1:img.person.num
