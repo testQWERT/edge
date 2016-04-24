@@ -1,9 +1,10 @@
 function [ result ] = edgefeature( img )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-% imA����pic,no,person,feature,edgefeat��person����patchNum,data{n,2}��num��patch{n,pN,2},patchfeature{n,pN},feature{n}
+% imA°üÀ¨pic,no,person,feature,edgefeat¡£person°üÀ¨patchNum,data{n,2}£¬num£¬patch{n,pN,2},patchfeature{n,pN},feature{n}
 %
-result=zeros(21,nchoosek(img.person.num,2)*img.person.patchNum^2);
+%result=zeros(21,nchoosek(img.person.num,2)*img.person.patchNum^2);
+result=[];%这个地方改了之后会避免不必要的bug
 counter=1;
 pN=img.person.patchNum;
 for i=1:img.person.num
@@ -19,7 +20,7 @@ for i=1:img.person.num
                 x=round(img.person.patch{k,b,1}(1)+img.person.patch{k,b,2}(1)/2);
                 y=round(img.person.patch{k,b,1}(2)+img.person.patch{k,b,2}(2)/2);
                 %tmp=(0.0001+img.person.patchfeature{i,j})./(0.0001+img.person.patchfeature{k,b});
-                result(:,counter)=[(i-1)*pN+j;(k-1)*pN+b;angleFeat([m,n],[x,y]);lenFeat(img.pic,[m,n],[x,y])];%(tmp+1./tmp)];
+                result(:,counter)=[(i-1)*pN+j;(k-1)*pN+b;angleFeat([m,n],[x,y]);lenFeat(img,[m,n],[x,y])];%(tmp+1./tmp)];
                 counter=counter+1;
             end
         end
